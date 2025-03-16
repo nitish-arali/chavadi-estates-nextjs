@@ -69,7 +69,9 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              ref={(el) => (projectRefs.current[index] = el)}
+              ref={(el) => {
+                projectRefs.current[index] = el;
+              }}
               className="opacity-0 transition-all duration-500"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
