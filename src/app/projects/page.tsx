@@ -12,22 +12,34 @@ import {
 } from "../../../components/ui/tabs";
 import { projects } from "../../../data/projects";
 
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  status: string;
+  location: string;
+}
+
 const Projects = () => {
-  const [statusFilter, setStatusFilter] = useState("All");
+  const [statusFilter, setStatusFilter] = useState<string>("All");
 
   // Get unique categories and statuses from the static projects data
-  const categories = [
+  const categories: string[] = [
     "All",
     ...new Set(projects.map((project) => project.category)),
   ];
-  const statuses = [
+  const statuses: string[] = [
     "All",
     ...new Set(projects.map((project) => project.status)),
   ];
 
   // Filter projects based on category and status
-  const filterProjectsByStatus = (projects, category, status) => {
-    let filtered = projects;
+  const filterProjectsByStatus = (
+    projects: Project[],
+    category: string,
+    status: string
+  ): Project[] => {
+    let filtered: Project[] = projects;
 
     if (category !== "all" && category !== "All") {
       filtered = filtered.filter(

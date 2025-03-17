@@ -1,6 +1,6 @@
-"use client"; // Mark this as a Client Component
+"use client";
 
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, MapPin, Calendar, Check } from "lucide-react";
 import {
@@ -11,6 +11,7 @@ import {
 } from "../../../../components/ui/tabs";
 import Image from "next/image";
 import { projects } from "../../../../data/projects"; // Import static projects data
+import FullScreenImageViewer from "../../../../components/FullScreenImageViewer";
 
 // Define the type for params
 type ProjectDetailParams = {
@@ -25,14 +26,27 @@ interface ProjectDetailProps {
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
   const router = useRouter();
 
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState<"gallery" | "layout-plan">(
+    "gallery"
+  ); // Track active tab
+
+  const openImageViewer = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsViewerOpen(true);
+  };
+
+  const closeImageViewer = () => {
+    setIsViewerOpen(false);
+  };
+
   // Unwrap the params Promise with React.use()
   const resolvedParams = use(params);
   const id = resolvedParams.id;
 
   // Find the project by ID
   const project = projects.find((p) => p.id === id);
-
-  console.log("params ", resolvedParams.id);
 
   if (!project) {
     return (
@@ -80,29 +94,27 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
       "Gated Community Access",
     ],
     gallery: [
-      project.image, // Use the main image
-      "/placeholder.svg", // Placeholder for additional images
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "https://ik.imagekit.io/chavadiestates2025/gallery5.jpg?updatedAt=1742200761023",
+      "https://ik.imagekit.io/chavadiestates2025/gallery6.jpg?updatedAt=1742200760777",
+      "https://ik.imagekit.io/chavadiestates2025/gallery2.jpg?updatedAt=1742200760646",
+      "https://ik.imagekit.io/chavadiestates2025/gallery1.jpg?updatedAt=1742200760830",
+      "https://ik.imagekit.io/chavadiestates2025/gallery3.jpg?updatedAt=1742200760554",
+      "https://ik.imagekit.io/chavadiestates2025/gallery7.jpg?updatedAt=1742200760826",
+      "https://ik.imagekit.io/chavadiestates2025/gallery4.jpg?updatedAt=1742200760454",
     ],
     layoutPlan: [
       {
-        name: "Layout Plan",
-        image: "/placeholder.svg",
-        size: "2,05,000 sq ft",
+        image:
+          "https://ik.imagekit.io/chavadiestates2025/IMG-20250317-WA0042.jpg?updatedAt=1742200780097",
       },
-      // {
-      //   name: "First Floor",
-      //   image: "/placeholder.svg",
-      //   size: "1,300 sq ft",
-      // },
-      // {
-      //   name: "Second Floor",
-      //   image: "/placeholder.svg",
-      //   size: "1,000 sq ft",
-      // },
+      {
+        image:
+          "https://ik.imagekit.io/chavadiestates2025/IMG-20250317-WA0013.jpg?updatedAt=1742200780488",
+      },
+      {
+        image:
+          "https://ik.imagekit.io/chavadiestates2025/IMG-20250317-WA0027.jpg?updatedAt=1742200780044",
+      },
     ],
   };
 
@@ -135,13 +147,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                   </div>
                   <span
                     className={`inline-block px-3 py-1 text-xs font-medium rounded text-white
-                  ${
-                    project.status === "Completed"
-                      ? "bg-green-500"
-                      : project.status === "Ongoing"
-                      ? "bg-blue-500"
-                      : "bg-orange-500"
-                  }`}
+${project.status === "Ongoing" ? "bg-blue-500" : "bg-orange-500"}`}
                   >
                     {project.status}
                   </span>
@@ -179,7 +185,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                 </div>
 
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <Tabs defaultValue="gallery">
+                  <Tabs
+                    defaultValue="gallery"
+                    onValueChange={(value) =>
+                      setActiveTab(value as "gallery" | "layout-plan")
+                    }
+                  >
                     <TabsList className="w-full justify-start mb-6">
                       <TabsTrigger value="gallery">Gallery</TabsTrigger>
                       <TabsTrigger value="layout-plan">Layout Plan</TabsTrigger>
@@ -191,7 +202,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                         {projectDetails.gallery.map((image, index) => (
                           <div
                             key={index}
-                            className="aspect-square overflow-hidden rounded-md"
+                            className="aspect-square overflow-hidden rounded-md cursor-pointer"
+                            onClick={() => openImageViewer(index)}
                           >
                             <Image
                               src={image}
@@ -210,21 +222,22 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                         {projectDetails.layoutPlan.map((plan, index) => (
                           <div
                             key={index}
-                            className="border rounded-md overflow-hidden"
+                            className="border rounded-md overflow-hidden cursor-pointer"
+                            onClick={() => openImageViewer(index)}
                           >
                             <Image
                               src={plan.image}
-                              alt={plan.name}
+                              alt={"layout plan"}
                               width={500}
                               height={300}
                               className="w-full h-48 object-cover"
                             />
-                            <div className="p-4">
+                            {/* <div className="p-4">
                               <h4 className="font-medium">{plan.name}</h4>
                               <p className="text-sm text-muted-foreground">
                                 {plan.size}
                               </p>
-                            </div>
+                            </div> */}
                           </div>
                         ))}
                       </div>
@@ -258,7 +271,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                         type="text"
                         id="name"
                         className="input-field w-full"
-                        // placeholder="John Doe"
                       />
                     </div>
                     <div>
@@ -269,7 +281,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                         type="email"
                         id="email"
                         className="input-field w-full"
-                        // placeholder="john@example.com"
                       />
                     </div>
                     <div>
@@ -280,7 +291,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                         type="tel"
                         id="phone"
                         className="input-field w-full"
-                        // placeholder="+1 (123) 456-7890"
                       />
                     </div>
                     <div>
@@ -322,10 +332,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
                   Project Coming Soon...
                 </h2>
                 <p className="text-muted-foreground mb-8 text-center px-12">
-                  The apartment project you're looking for is an exciting
-                  upcoming development. Stay tuned for more details, as we
-                  prepare to bring you a modern, luxurious living experience
-                  designed for your comfort and convenience.
+                  This project is part of our upcoming portfolio. We are in the
+                  planning phase and will be revealing more details in the near
+                  future. Stay tuned as we prepare to introduce this exceptional
+                  new development, designed with our unwavering commitment to
+                  quality, innovation, and customer satisfaction.
                 </p>
                 <button
                   onClick={() => router.push("/projects")}
@@ -336,7 +347,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
               </div>
 
               <div className="mt-5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 md:p-12 shadow-lg relative overflow-hidden">
-                {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -translate-x-1/3 translate-y-1/3 blur-2xl"></div>
 
@@ -372,6 +382,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
           )}
         </div>
       </div>
+      {isViewerOpen && (
+        <FullScreenImageViewer
+          images={
+            activeTab === "gallery"
+              ? projectDetails.gallery
+              : projectDetails.layoutPlan.map((plan) => plan.image)
+          }
+          initialIndex={currentImageIndex}
+          onClose={closeImageViewer}
+        />
+      )}
     </>
   );
 };

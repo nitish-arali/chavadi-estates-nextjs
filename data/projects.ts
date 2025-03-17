@@ -23,7 +23,7 @@ export const projects = [
       "Electric car charging",
     ],
     image:
-      "https://ik.imagekit.io/chavadiestates2025/chavadi-lotus.jpg?updatedAt=1742096140625",
+      "https://ik.imagekit.io/chavadiestates2025/chavadi-lotus-pond.jpg?updatedAt=1742194103770",
     gallery: [
       "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
       "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
@@ -100,23 +100,23 @@ export const projects = [
 export const testimonials = [
   {
     id: 1,
-    name: "Jennifer & Robert Anderson",
-    role: "Homeowners, The Aurum Villas",
+    name: "Rajesh & Priya Sharma",
+    role: "Layout Owners, Chavadi Lotus Enclave",
     quote:
-      "Working with Chavadi Estates has been a dream come true. Our villa exceeds all expectations, with meticulous attention to detail and unparalleled craftsmanship. The team was responsive and professional throughout the entire process.",
+      "Choosing Chavadi Estates for our dream home was the best decision we made. The attention to detail, quality craftsmanship, and seamless process truly made our experience delightful.",
   },
   {
     id: 2,
-    name: "Michael Chang",
-    role: "Investor, Skyline Residences",
+    name: "Amit Verma",
+    role: "Investor",
     quote:
-      "As a real estate investor, I value quality and return on investment. Chavadi Estates has delivered on both fronts with the Skyline Residences project. Their market insight and execution are truly best-in-class.",
+      "As a real estate investor, I look for trust and quality. Chavadi Estates has delivered both with their portfolio of projects. Their understanding of market trends and execution sets them apart.",
   },
   {
     id: 3,
-    name: "Sarah Williams",
-    role: "CEO, Williams Enterprises",
+    name: "Neha Reddy",
+    role: "Layout Owner, Chavadi Lotus Enclave",
     quote:
-      "The Nova Business Tower has transformed our company culture. The innovative design and amenities have improved productivity and employee satisfaction. Chavadi Estates understood our needs and delivered beyond our expectations.",
+      "Investing in Chavadi Lotus Enclave has been a great decision. The well-planned layout, infrastructure, and appreciation potential make it a valuable asset. Chavadi Estates' commitment to quality and transparency truly sets them apart.",
   },
 ];

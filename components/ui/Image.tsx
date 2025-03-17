@@ -23,7 +23,8 @@ const Image = ({
 
   useEffect(() => {
     if (priority) {
-      const img = new Image();
+      // Use window.Image to avoid name collision with the component
+      const img = new window.Image();
       img.src = typeof src === "string" ? src : "";
       img.onload = () => {
         setIsLoaded(true);

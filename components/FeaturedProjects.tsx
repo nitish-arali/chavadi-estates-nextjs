@@ -53,6 +53,10 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    projectRefs.current = Array(projects.length).fill(null);
+  }, [projects.length]);
+
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-secondary">
       <div className="container-custom">

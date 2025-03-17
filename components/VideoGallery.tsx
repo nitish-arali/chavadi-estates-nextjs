@@ -57,34 +57,24 @@ interface Video {
 const VideoGallery = () => {
   const [videos] = useState<Video[]>([
     {
-      id: "dQw4w9WgXcQ",
+      id: "NSMYmdjvWB8",
       title: "Luxury Villa Project Walkthrough",
-      thumbnail:
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      thumbnail: "https://img.youtube.com/vi/NSMYmdjvWB8/0.jpg",
     },
     {
-      id: "QH2-TGUlwu4",
+      id: "0R1lutYNLNA",
       title: "Premium Apartment Tour",
-      thumbnail:
-        "https://images.unsplash.com/photo-1600607687939-ce8a6c2a2d98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      thumbnail: "https://img.youtube.com/vi/0R1lutYNLNA/0.jpg",
     },
     {
-      id: "9bZkp7q19f0",
-      title: "Commercial Space Development",
-      thumbnail:
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      id: "broPN9k-Ctw",
+      title: "Premium Apartment Tour",
+      thumbnail: "https://img.youtube.com/vi/broPN9k-Ctw/0.jpg",
     },
     {
-      id: "FTQbiNvZqaY",
-      title: "Resort Project Overview",
-      thumbnail:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      id: "YykjpeuMNEk",
-      title: "Sustainable Housing Initiative",
-      thumbnail:
-        "https://images.unsplash.com/photo-1623298317883-6b70254edf31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      id: "OsJx0UNJaYQ",
+      title: "Premium Apartment Tour",
+      thumbnail: "https://img.youtube.com/vi/OsJx0UNJaYQ/0.jpg",
     },
   ]);
 
@@ -111,7 +101,7 @@ const VideoGallery = () => {
           videoId: activeVideoId,
           playerVars: {
             autoplay: 0,
-            controls: 1,
+            controls: 0,
             modestbranding: 1,
             rel: 0,
             showinfo: 0,
@@ -224,12 +214,12 @@ const VideoGallery = () => {
           </div>
         </div>
 
-        <div className="w-full rounded-xl overflow-hidden bg-slate-900 aspect-video shadow-2xl relative mb-8 ring-1 ring-white/20 ring-offset-4 ring-offset-emerald-50/50">
+        <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-slate-700 aspect-video shadow-2xl relative mb-8 ring-1 ring-white/20 ring-offset-4 ring-offset-emerald-50/50">
           <div ref={playerContainerRef} className="w-full h-full"></div>
 
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between backdrop-blur-sm">
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between lg:backdrop-blur-sm">
             <div className="flex items-center">
-              {/* <button
+              <button
                 onClick={togglePlay}
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-emerald-500 text-white hover:bg-emerald-600 transition-colors shadow-lg"
                 aria-label={isPlaying ? "Pause video" : "Play video"}
@@ -239,7 +229,7 @@ const VideoGallery = () => {
                 ) : (
                   <Play size={22} className="ml-1" />
                 )}
-              </button> */}
+              </button>
               <span className="text-white text-sm ml-4 hidden sm:block font-medium">
                 {videos.find((v) => v.id === activeVideoId)?.title}
               </span>
@@ -254,7 +244,7 @@ const VideoGallery = () => {
           </div>
         </div>
 
-        <div className="relative mt-10">
+        <div className="relative max-w-5xl mx-auto">
           <button
             onClick={() => scrollCarousel("left")}
             className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-3 shadow-lg text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all hidden sm:flex items-center justify-center"

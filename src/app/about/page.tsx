@@ -4,37 +4,36 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Award, Users, Clock, Coffee } from "lucide-react";
-
 const About = () => {
   const team = [
     {
-      name: "Alexander Reynolds",
+      name: "Rudraiah Chavadi",
       role: "Founder & CEO",
       image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      bio: "With over 25 years of experience in real estate development, Alexander founded Chavadi Estates with a vision to create exceptional living spaces that inspire.",
+        "https://ik.imagekit.io/chavadiestates2025/photo.jpg?updatedAt=1742194102811",
+      bio: "With over 10 years of experience in real estate development, Rudraiah founded Chavadi Estates with a vision to create exceptional living spaces that inspire.",
     },
-    {
-      name: "Sophia Martinez",
-      role: "Chief Architect",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
-      bio: "Sophia brings creative vision and technical expertise to every project. Her award-winning designs have set new standards in luxury real estate.",
-    },
-    {
-      name: "Jonathan Chen",
-      role: "Director of Operations",
-      image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      bio: "Jonathan ensures seamless execution across all projects. His attention to detail and operational excellence are key to our timely project delivery.",
-    },
-    {
-      name: "Olivia Williams",
-      role: "Head of Design",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80",
-      bio: "Olivia leads our interior design team, creating sophisticated spaces that blend aesthetics with functionality for truly luxurious living experiences.",
-    },
+    // {
+    //   name: "Sophia Martinez",
+    //   role: "Chief Architect",
+    //   image:
+    //     "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
+    //   bio: "Sophia brings creative vision and technical expertise to every project. Her award-winning designs have set new standards in luxury real estate.",
+    // },
+    // {
+    //   name: "Jonathan Chen",
+    //   role: "Director of Operations",
+    //   image:
+    //     "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    //   bio: "Jonathan ensures seamless execution across all projects. His attention to detail and operational excellence are key to our timely project delivery.",
+    // },
+    // {
+    //   name: "Olivia Williams",
+    //   role: "Head of Design",
+    //   image:
+    //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80",
+    //   bio: "Olivia leads our interior design team, creating sophisticated spaces that blend aesthetics with functionality for truly luxurious living experiences.",
+    // },
   ];
 
   return (
@@ -55,7 +54,7 @@ const About = () => {
           </h1>
           <p className="text-xl max-w-2xl mx-auto">
             Building excellence and creating exceptional living spaces since
-            2005
+            2017
           </p>
         </div>
       </section>
@@ -72,8 +71,8 @@ const About = () => {
                 A Legacy of Excellence
               </h2>
               <p className="text-estate-600 mb-6 leading-relaxed">
-                Chavadi Estates was founded in 2005 by Alexander Reynolds, a
-                visionary architect with a passion for creating exceptional
+                Chavadi Estates was founded in 2017 by Mr. Rudraiah Chavadi, a
+                visionary entrepreneur with a passion for creating exceptional
                 living spaces. What began as a small firm with big dreams has
                 evolved into one of the most respected names in luxury real
                 estate development.
@@ -81,9 +80,9 @@ const About = () => {
               <p className="text-estate-600 mb-6 leading-relaxed">
                 Our journey has been defined by an unwavering commitment to
                 quality, innovation, and customer satisfaction. Over the years,
-                we have successfully delivered more than 50 projects across
-                residential, commercial, and mixed-use segments, each bearing
-                the hallmark of Chavadi excellence.
+                we have successfully delivered a diverse range of projects
+                across residential, commercial, and mixed-use segments, each
+                bearing the hallmark of Chavadi excellence.
               </p>
               <p className="text-estate-600 leading-relaxed">
                 Today, Chavadi Estates stands as a testament to what can be
@@ -142,12 +141,12 @@ const About = () => {
       {/* Stats Section */}
       <section className="py-20 bg-estate-900 text-white">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
-              { icon: Award, number: "50+", label: "Projects Completed" },
+              // { icon: Award, number: "50+", label: "Projects Completed" },
               { icon: Users, number: "1,200+", label: "Happy Families" },
-              { icon: Clock, number: "18", label: "Years of Excellence" },
-              { icon: Coffee, number: "45+", label: "Design Awards" },
+              { icon: Clock, number: "8", label: "Years of Excellence" },
+              { icon: Coffee, number: "10+", label: "Industry Awards" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold-600 text-estate-900 mb-4">
@@ -265,13 +264,19 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            className={`grid gap-8 ${
+              team.length === 1
+                ? "grid-cols-1 justify-center place-items-center"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+            }`}
+          >
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
+                className="group bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md w-full sm:w-[400px]"
               >
-                <div className="h-64 overflow-hidden">
+                <div className="h-70 overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
