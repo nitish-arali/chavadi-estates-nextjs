@@ -18,6 +18,7 @@ interface Project {
   category: string;
   status: string;
   location: string;
+  image: string;
 }
 
 const Projects = () => {
