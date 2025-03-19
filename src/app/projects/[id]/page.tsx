@@ -129,7 +129,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ params }) => {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
           </button>
-          {resolvedParams.id === "Chavadi-Lotus-Enclave" ? (
+          {resolvedParams.id === "Chavadi-Lotus-Pond" ? (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 <h1 className="text-3xl md:text-4xl font-serif font-bold mb-4">

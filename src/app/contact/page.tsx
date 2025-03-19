@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
 import ContactForm from "../../../components/ContactForm";
 
 const Contact = () => {
@@ -17,7 +17,6 @@ const Contact = () => {
               reach out using the form below or contact information.
             </p>
           </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 bg-white p-8 rounded-lg shadow-sm">
               <h2 className="text-2xl font-serif font-medium mb-6">
@@ -38,13 +37,57 @@ const Contact = () => {
                       <MapPin className="h-6 w-6" />
                     </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-medium mb-1">Our Office</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="text-lg font-medium mb-1">Our Offices</h3>
+                      <div>
+                        <p className="text-muted-foreground inline-flex items-center">
+                          <a
+                            href="https://maps.app.goo.gl/nfd2nZonwsS6hNdAA"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-estate-600 inline-flex items-center"
+                          >
+                            <strong>Corporate Office</strong>&nbsp;
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-muted-foreground inline-flex items-center">
+                          <a
+                            href="https://maps.app.goo.gl/A87bzRyQy9h43mgb6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-estate-600 inline-flex items-center"
+                          >
+                            <strong>Branch Office</strong>&nbsp;
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-muted-foreground inline-flex items-center">
+                          <a
+                            href="https://maps.app.goo.gl/Lic7TECesmbTpiAq6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-estate-600 inline-flex items-center"
+                          >
+                            <strong>Site Office</strong>&nbsp;
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </p>
+                      </div>
+
+                      {/* <p className="text-muted-foreground">
+                        <i>Corporate Office:</i>
+                        <br />
                         #63/1, Hoodi Main Road, <br />
                         Surya Layout, Ayyappa Nagar, <br />
                         Beside Adyar Ananda Bhavan - A2B,
                         <br />K R Pura, Bengaluru, Karnataka-560036
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 
@@ -189,29 +232,108 @@ const Contact = () => {
                 </div>
               </div>
             </div>
+          </div>{" "}
+          <div className="text-center">
+            <p className="text-lg font-medium">
+              <MapPin
+                style={{ display: "inline" }}
+                className="h-12 w-12 text-estate-400 mx-auto my-4"
+              />
+              Visit Our Offices
+            </p>
+          </div>
+          <div className="container-custom min-h-max">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mt-12">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-lg font-medium mb-1 italic">
+                  Corporate Office :
+                </h3>
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/nfd2nZonwsS6hNdAA"
+                  className="text-muted-foreground"
+                >
+                  <p className="text-muted-foreground">
+                    #63/1, Hoodi Main Road, <br />
+                    Surya Layout, Ayyappa Nagar, <br />
+                    Beside Adyar Ananda Bhavan - A2B, <br />K R Pura, Bengaluru,
+                    Karnataka-560036
+                  </p>
+                </a>
+                <div className="w-full rounded-lg shadow-md overflow-hidden mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5271683739375!2d77.71032197507697!3d13.00206608731611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11b7942ec747%3A0xb9824e65f0ed370f!2sChavadi%20Estates%20Private%20Limited%20Bangalore!5e0!3m2!1sen!2sin!4v1742065692276!5m2!1sen!2sin"
+                    width="100%"
+                    height="250"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Google Map showing Chavadi Estates office location"
+                  ></iframe>
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-lg font-medium mb-1 italic">
+                  Branch Office :
+                </h3>
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/A87bzRyQy9h43mgb6"
+                  className="text-muted-foreground"
+                >
+                  <p className="text-muted-foreground">
+                    Gera-77, <br /> Palace View Society, <br /> Kalyani Nagar,
+                    Pune, Maharashtra-411006 <br />
+                    &nbsp;
+                  </p>
+                </a>
+                <div className="w-full rounded-lg shadow-md overflow-hidden mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.4392795549306!2d73.90591309999999!3d18.554224199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1124099deed%3A0xa26ec5c89a858729!2sChavadi%20Estates%20Private%20Limited!5e0!3m2!1sen!2sin!4v1742303403784!5m2!1sen!2sin"
+                    width="100%"
+                    height="250"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Google Map showing Chavadi Estates Pune office location"
+                  ></iframe>
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-lg font-medium mb-1 italic">
+                  Site Office :
+                </h3>
+                <a
+                  target="_blank"
+                  href="https://maps.app.goo.gl/Lic7TECesmbTpiAq6"
+                  className="text-muted-foreground mb-4"
+                >
+                  <p className="text-muted-foreground">
+                    Magadi Main Road, <br />
+                    Tavarekere, <br />
+                    Bengaluru, Karnataka-562130
+                    <br />
+                    &nbsp;
+                  </p>
+                </a>
+                <div className="w-full rounded-lg shadow-md overflow-hidden mt-8">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1944.1680176658238!2d77.3916959!3d12.9503363!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae39bafeecc4b1%3A0x86b5e80b9a378d9f!2sChavadi%20Estates%20Private%20Limited%20Tavarekere%20Magadi%20Road%20Project%20Office!5e0!3m2!1sen!2sin!4v1742306238684!5m2!1sen!2sin"
+                    width="100%"
+                    height="250"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    aria-label="Google Map showing Chavadi Estates Pune office location"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="text-center">
-        <p className="text-lg font-medium">
-          <MapPin
-            style={{ display: "inline" }}
-            className="h-12 w-12 text-estate-400 mx-auto mb-4"
-          />
-          Visit Our Office
-        </p>
-      </div>
-      <div className="px-12 w-full h-96 rounded-lg shadow-md overflow-hidden pb-24">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5271683739375!2d77.71032197507697!3d13.00206608731611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11b7942ec747%3A0xb9824e65f0ed370f!2sChavadi%20Estates%20Private%20Limited%20Bangalore!5e0!3m2!1sen!2sin!4v1742065692276!5m2!1sen!2sin"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          aria-label="Google Map showing Chavadi Estates office location"
-        ></iframe>
       </div>
     </>
   );

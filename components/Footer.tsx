@@ -131,6 +131,8 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-gold mr-3 mt-[2px]" />
                 <span className="text-estate-200">
+                  <i> Corporate Office: </i>
+                  <br />
                   #63/1, Hoodi Main Road, <br />
                   Surya Layout, Ayyappa Nagar, <br />
                   Beside Adyar Ananda Bhavan - A2B,

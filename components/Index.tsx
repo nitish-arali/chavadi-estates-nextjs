@@ -463,7 +463,7 @@ const Index = () => {
               </p>
 
               <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-                <h4 className="text-lg font-medium mb-4">Visit Our Office</h4>
+                <h4 className="text-lg font-medium mb-4">Visit Our Corporate Office</h4>
                 <div className="mb-4">
                   <GoogleMap />
                 </div>

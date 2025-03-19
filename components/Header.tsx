@@ -170,7 +170,7 @@ const Header = () => {
                         </h3>
                         <div className="space-y-4">
                           <Link
-                            href="/projects/Chavadi-Lotus-Enclave"
+                            href="/projects/Chavadi-Lotus-Pond"
                             className="flex items-center space-x-3 hover:text-emerald-600 transition-colors p-2 rounded-md hover:bg-emerald-50 group"
                           >
                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-md flex items-center justify-center text-emerald-600 group-hover:bg-emerald-200 transition-colors">
@@ -178,7 +178,7 @@ const Header = () => {
                             </div>
                             <div>
                               <span className="font-medium block">
-                                Chavadi Lotus Enclave
+                                Chavadi Lotus Pond
                               </span>
                               <span className="text-xs sm:text-sm text-slate-500">
                                 Premium residential layouts
@@ -186,7 +186,7 @@ const Header = () => {
                             </div>
                           </Link>
                           <Link
-                            href="/projects/premium-apartments"
+                            href="/projects/Chavadi-Blossom-Valley"
                             className="flex items-center space-x-3 hover:text-emerald-600 transition-colors p-2 rounded-md hover:bg-emerald-50 group"
                           >
                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 rounded-md flex items-center justify-center text-emerald-600 group-hover:bg-emerald-200 transition-colors">
@@ -194,10 +194,10 @@ const Header = () => {
                             </div>
                             <div>
                               <span className="font-medium block">
-                                Chavadi Aura Appartments
+                                Chavadi Blossom Valley
                               </span>
                               <span className="text-xs sm:text-sm text-slate-500">
-                                Premium Appartments
+                                Premium residential layouts
                               </span>
                             </div>
                           </Link>

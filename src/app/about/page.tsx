@@ -4,22 +4,24 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Award, Users, Clock, Coffee } from "lucide-react";
+
 const About = () => {
   const team = [
     {
       name: "Rudraiah Chavadi",
-      role: "Founder & CEO",
+      role: "Founder & Managing Director",
       image:
         "https://ik.imagekit.io/chavadiestates2025/photo.jpg?updatedAt=1742194102811",
       bio: "With over 10 years of experience in real estate development, Rudraiah founded Chavadi Estates with a vision to create exceptional living spaces that inspire.",
     },
-    // {
-    //   name: "Sophia Martinez",
-    //   role: "Chief Architect",
-    //   image:
-    //     "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80",
-    //   bio: "Sophia brings creative vision and technical expertise to every project. Her award-winning designs have set new standards in luxury real estate.",
-    // },
+
+    {
+      name: "Ranjith Singh",
+      role: "Director of Operations – Maharashtra",
+      image:
+        "https://ik.imagekit.io/chavadiestates2025/photo2.jpg?updatedAt=1742354359642",
+      bio: "With over 10 years of experience in operations and real estate management, Ranjith oversees and drives Chavadi Estates’ operations in Maharashtra, ensuring seamless execution and excellence in every project.",
+    },
     // {
     //   name: "Jonathan Chen",
     //   role: "Director of Operations",
@@ -264,24 +266,16 @@ const About = () => {
             </p>
           </div>
 
-          <div
-            className={`grid gap-8 ${
-              team.length === 1
-                ? "grid-cols-1 justify-center place-items-center"
-                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
-            }`}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md w-full sm:w-[400px]"
+                className="group bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
               >
-                <div className="h-70 overflow-hidden">
-                  <Image
+                <div className="h-64 overflow-hidden">
+                  <img
                     src={member.image}
                     alt={member.name}
-                    width={500}
-                    height={300}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
