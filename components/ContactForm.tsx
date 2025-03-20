@@ -122,9 +122,13 @@ const ContactForm = () => {
             onChange={handleChange}
           >
             <option value="General Inquiry">General Inquiry</option>
-            <option value="Chavadi Lotus Enclave">Chavadi Lotus Enclave</option>
-            <option value="Chavadi Garden Resort">Chavadi Garden Resort</option>
-            <option value="Chavadi Luxe Villas">Chavadi Luxe Villas</option>
+            <option value="Chavadi Lotus Pond">Chavadi Lotus Pond</option>
+            <option value="Chavadi Wedding Retreat">
+              Chavadi Wedding Retreat
+            </option>
+            <option value="Chavadi Blossom Valley">
+              Chavadi Blossom Valley
+            </option>
             <option value="Chavadi Aura Apartments">
               Chavadi Aura Apartments
             </option>

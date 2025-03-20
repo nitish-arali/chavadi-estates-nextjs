@@ -283,9 +283,10 @@ const Contact = () => {
                   className="text-muted-foreground"
                 >
                   <p className="text-muted-foreground">
-                    Gera-77, <br /> Palace View Society, <br /> Kalyani Nagar,
-                    Pune, Maharashtra-411006 <br />
-                    &nbsp;
+                    Gera 77 Building, <br /> Office No. - F03, <br /> First
+                    Floor, Kalyani Nagar, Near Bishops School, Pune,
+                    Maharashtra-411006
+                    <br />
                   </p>
                 </a>
                 <div className="w-full rounded-lg shadow-md overflow-hidden mt-8">
