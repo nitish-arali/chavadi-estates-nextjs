@@ -266,17 +266,17 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
+                className="group sm-mx-12 bg-white rounded-lg overflow-hidden shadow-sm transform transition-all duration-300 hover:-translate-y-2 hover:shadow-md"
               >
                 <div className="h-64 overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
