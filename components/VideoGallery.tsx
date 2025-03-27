@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
+import YouTube from "react-youtube";
 import {
   Play,
   Pause,
@@ -10,43 +11,6 @@ import {
   Film,
   Sparkles,
 } from "lucide-react";
-
-// Define the YouTube API types
-declare global {
-  interface Window {
-    onYouTubeIframeAPIReady: () => void;
-    YT: {
-      Player: new (
-        element: HTMLElement | string,
-        config: {
-          videoId: string;
-          playerVars?: {
-            autoplay?: number;
-            controls?: number;
-            modestbranding?: number;
-            rel?: number;
-            showinfo?: number;
-            mute?: number;
-          };
-          events?: {
-            onReady?: () => void;
-            onStateChange?: (event: { data: number }) => void;
-          };
-        }
-      ) => YTPlayer;
-    };
-  }
-}
-
-// Define YTPlayer interface for the instance methods
-interface YTPlayer {
-  playVideo: () => void;
-  pauseVideo: () => void;
-  mute: () => void;
-  unMute: () => void;
-  loadVideoById: (videoId: string) => void;
-  destroy: () => void;
-}
 
 interface Video {
   id: string;
@@ -80,62 +44,32 @@ const VideoGallery = () => {
 
   const [activeVideoId, setActiveVideoId] = useState<string>(videos[0].id);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isMuted, setIsMuted] = useState<boolean>(false);
-  const [playerReady, setPlayerReady] = useState<boolean>(false);
-
-  const playerRef = useRef<YTPlayer | null>(null);
-  const playerContainerRef = useRef<HTMLDivElement>(null);
+  const [isMuted, setIsMuted] = useState<boolean>(true);
+  const playerRef = useRef<any>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName("script")[0];
-    if (firstScriptTag.parentNode) {
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+  const opts = {
+    height: "100%",
+    width: "100%",
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0,
+      mute: 1,
+    },
+  };
 
-    window.onYouTubeIframeAPIReady = () => {
-      if (playerContainerRef.current) {
-        playerRef.current = new window.YT.Player(playerContainerRef.current, {
-          videoId: activeVideoId,
-          playerVars: {
-            autoplay: 0,
-            controls: 0,
-            modestbranding: 1,
-            rel: 0,
-            showinfo: 0,
-            mute: 1,
-          },
-          events: {
-            onReady: () => {
-              setPlayerReady(true);
-              if (playerRef.current) {
-                playerRef.current.mute();
-                setIsMuted(true);
-              }
-            },
-          },
-        });
-      }
-    };
-
-    return () => {
-      if (playerRef.current) {
-        playerRef.current.destroy();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (playerReady && playerRef.current) {
-      playerRef.current.loadVideoById(activeVideoId);
-      setIsPlaying(false);
-    }
-  }, [activeVideoId]);
+  const handleReady = (event: any) => {
+    playerRef.current = event.target;
+    playerRef.current.mute();
+    setIsMuted(true);
+  };
 
   const handleVideoSelect = (videoId: string) => {
     setActiveVideoId(videoId);
+    setIsPlaying(false);
   };
 
   const togglePlay = () => {
@@ -215,7 +149,12 @@ const VideoGallery = () => {
         </div>
 
         <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden bg-slate-700 aspect-video shadow-2xl relative mb-8 ring-1 ring-white/20 ring-offset-4 ring-offset-emerald-50/50">
-          <div ref={playerContainerRef} className="w-full h-full"></div>
+          <YouTube
+            videoId={activeVideoId}
+            opts={opts}
+            onReady={handleReady}
+            className="w-full h-full"
+          />
 
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent flex items-center justify-between lg:backdrop-blur-sm">
             <div className="flex items-center">
