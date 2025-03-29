@@ -21,6 +21,12 @@ interface Video {
 const VideoGallery = () => {
   const [videos] = useState<Video[]>([
     {
+      id: "lop12ytJ6eU",
+      title: "Chavadi Estates - Corporate Video",
+      thumbnail:
+        "https://ik.imagekit.io/chavadiestates2025/chavadi_estates_thumbnail.png?updatedAt=1743256948605",
+    },
+    {
       id: "NSMYmdjvWB8",
       title: "Luxury Villa Project Walkthrough",
       thumbnail: "https://img.youtube.com/vi/NSMYmdjvWB8/0.jpg",

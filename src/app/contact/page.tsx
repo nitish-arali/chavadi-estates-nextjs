@@ -146,7 +146,8 @@ const Contact = () => {
                   <h3 className="font-medium mb-4">Connect With Us</h3>
                   <div className="flex space-x-4">
                     <a
-                      href="#"
+                      target="_blank"
+                      href="https://www.facebook.com/profile.php?id=61574779322267"
                       className="h-10 w-10 rounded-full bg-estate-50 flex items-center justify-center text-estate-600 hover:bg-estate-100 transition-colors"
                     >
                       <svg
@@ -164,7 +165,8 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      target="_blank"
+                      href="https://www.instagram.com/chavadi_estates"
                       className="h-10 w-10 rounded-full bg-estate-50 flex items-center justify-center text-estate-600 hover:bg-estate-100 transition-colors"
                     >
                       <svg
@@ -191,7 +193,8 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      target="_blank"
+                      href="https://x.com/chavadi_estates"
                       className="h-10 w-10 rounded-full bg-estate-50 flex items-center justify-center text-estate-600 hover:bg-estate-100 transition-colors"
                     >
                       <svg
@@ -209,7 +212,8 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a
-                      href="#"
+                      target="_blank"
+                      href="https://www.linkedin.com/in/chavadi-estates-49b20b359"
                       className="h-10 w-10 rounded-full bg-estate-50 flex items-center justify-center text-estate-600 hover:bg-estate-100 transition-colors"
                     >
                       <svg
@@ -226,6 +230,26 @@ const Contact = () => {
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                    </a>
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/channel/UCsQGFTKcWvGfGYfsekBpCPw"
+                      className="h-10 w-10 rounded-full bg-estate-50 flex items-center justify-center text-estate-600 hover:bg-estate-100 transition-colors"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M22.54 6.42a2.37 2.37 0 0 0-1.67-1.67C19.08 4.3 12 4.3 12 4.3s-7.08 0-8.87.45A2.37 2.37 0 0 0 1.46 6.42 24.19 24.19 0 0 0 1 12a24.19 24.19 0 0 0 .46 5.58 2.37 2.37 0 0 0 1.67 1.67c1.79.45 8.87.45 8.87.45s7.08 0 8.87-.45a2.37 2.37 0 0 0 1.67-1.67A24.19 24.19 0 0 0 23 12a24.19 24.19 0 0 0-.46-5.58z"></path>
+                        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
                       </svg>
                     </a>
                   </div>

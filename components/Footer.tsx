@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin,
   ArrowRight,
+  Youtube,
 } from "lucide-react";
 
 const Footer = () => {
@@ -29,32 +30,44 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                target="_blank"
+                href="https://www.facebook.com/profile.php?id=61574779322267"
                 className="text-white hover:text-gold transition-colors p-2"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://twitter.com"
+                target="_blank"
+                href="https://x.com/chavadi_estates"
                 className="text-white hover:text-gold transition-colors p-2"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                target="_blank"
+                href="https://www.instagram.com/chavadi_estates"
                 className="text-white hover:text-gold transition-colors p-2"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                target="_blank"
+                href="https://www.linkedin.com/in/chavadi-estates-49b20b359"
                 className="text-white hover:text-gold transition-colors p-2"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.youtube.com/channel/UCsQGFTKcWvGfGYfsekBpCPw"
+                className="text-white hover:text-gold transition-colors p-2"
+                aria-label="Youtube"
+              >
+                <Youtube className="h-6 w-6" />
               </a>
             </div>
           </div>
