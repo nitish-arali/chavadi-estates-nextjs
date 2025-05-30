@@ -8,34 +8,26 @@ import { ArrowRight, Award, Users, Clock, Coffee } from "lucide-react";
 const About = () => {
   const team = [
     {
-      name: "Rudraiah Chavadi",
+      name: "Mr. Rudraiah Chavadi",
       role: "Founder & Managing Director",
       image:
         "https://ik.imagekit.io/chavadiestates2025/photo.jpg?updatedAt=1742194102811",
       bio: "With over 10 years of experience in real estate development, Rudraiah founded Chavadi Estates with a vision to create exceptional living spaces that inspire.",
     },
-
     {
-      name: "Ranjith Singh",
+      name: "Mr. Jatram Govindraj",
+      role: "Director",
+      image:
+        "https://ik.imagekit.io/chavadiestates2025/Mr.JatramGovindraj.jpg",
+      bio: "Jatram ensures seamless execution across all projects. His attention to detail and operational excellence are key to our timely project delivery.",
+    },
+    {
+      name: "Mr. Ranjith Singh",
       role: "Director of Operations – Maharashtra",
       image:
         "https://ik.imagekit.io/chavadiestates2025/photo2.jpg?updatedAt=1742354359642",
       bio: "With over 10 years of experience in operations and real estate management, Ranjith oversees and drives Chavadi Estates’ operations in Maharashtra, ensuring seamless execution and excellence in every project.",
     },
-    // {
-    //   name: "Jonathan Chen",
-    //   role: "Director of Operations",
-    //   image:
-    //     "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    //   bio: "Jonathan ensures seamless execution across all projects. His attention to detail and operational excellence are key to our timely project delivery.",
-    // },
-    // {
-    //   name: "Olivia Williams",
-    //   role: "Head of Design",
-    //   image:
-    //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80",
-    //   bio: "Olivia leads our interior design team, creating sophisticated spaces that blend aesthetics with functionality for truly luxurious living experiences.",
-    // },
   ];
 
   return (
