@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { projects } from "../../../../data/projects"; // Import static projects data
 import FullScreenImageViewer from "../../../../components/FullScreenImageViewer";
+import ProjectInquiryForm from "../../../../components/ProjectEnquiryForm";
 
 // Define the type for params
 type ProjectDetailParams = {
@@ -262,52 +263,7 @@ ${project.status === "Ongoing" ? "bg-blue-500" : "bg-orange-500"}`}
                   <h2 className="text-xl font-serif font-medium mb-6">
                     Interested in this property?
                   </h2>
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block mb-1 text-sm">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="input-field w-full"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block mb-1 text-sm">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="input-field w-full"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block mb-1 text-sm">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="input-field w-full"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block mb-1 text-sm">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        rows={3}
-                        className="input-field w-full resize-none"
-                        placeholder="I'm interested in this property..."
-                      ></textarea>
-                    </div>
-                    <button type="submit" className="btn-gold w-full">
-                      Send Inquiry
-                    </button>
-                  </form>
+                  <ProjectInquiryForm projectName={project.title} />
 
                   <div className="mt-8 pt-6 border-t">
                     <h3 className="font-medium mb-3">Need more information?</h3>

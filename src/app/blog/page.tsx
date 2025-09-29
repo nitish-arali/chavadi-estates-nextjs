@@ -12,6 +12,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { articles } from "../../../data/articles"; // Import static articles data
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,6 +21,12 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredArticles, setFilteredArticles] = useState(articles);
   const articlesPerPage = 6;
+
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+
+  const [loading, setLoading] = useState(false);
 
   // Filter articles based on search query and category
   useEffect(() => {
@@ -108,6 +116,52 @@ const Blog = () => {
     }
     // Do nothing if it's a string (ellipsis)
   };
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch('/api/newsLetterSubscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      await response.json();
+
+      setFormData({ email: "" });
+      toast.success("Subscribed to newsletter successfully!", {
+        position: "top-center",
+        autoClose: 2000,        // 2 seconds
+        hideProgressBar: true,
+        pauseOnHover: false,    // don’t pause on hover
+        pauseOnFocusLoss: false,// don’t pause when tab/window loses focus
+        closeOnClick: false,    // clicking won’t close it early
+        draggable: false,
+      });
+    }
+    catch (error) {
+      console.error("Error submitting email:", error);
+      toast.error("Failed to subscribe. Please try again later.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      })
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <div className="relative">
@@ -215,11 +269,10 @@ const Blog = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeCategory === category
-                    ? "bg-emerald-600 text-white"
-                    : "bg-white border border-slate-200 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === category
+                  ? "bg-emerald-600 text-white"
+                  : "bg-white border border-slate-200 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200"
+                  }`}
                 onClick={() => setActiveCategory(category)}
               >
                 {category}
@@ -328,11 +381,10 @@ const Blog = () => {
                   ) : (
                     <button
                       key={`page-${page}`}
-                      className={`w-10 h-10 flex items-center justify-center rounded-md transition-colors ${
-                        currentPage === page
-                          ? "bg-emerald-600 text-white"
-                          : "text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
-                      }`}
+                      className={`w-10 h-10 flex items-center justify-center rounded-md transition-colors ${currentPage === page
+                        ? "bg-emerald-600 text-white"
+                        : "text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
+                        }`}
                       onClick={() => handlePageClick(page)}
                     >
                       {page}
@@ -369,22 +421,28 @@ const Blog = () => {
                   offers straight to your inbox.
                 </p>
               </div>
-
-              <div className="w-full md:w-auto">
-                <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="px-4 py-3 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-white/50"
-                  />
-                  <button className="bg-white text-emerald-700 px-6 py-3 rounded-lg font-medium hover:bg-emerald-50 transition-colors whitespace-nowrap">
-                    Subscribe
-                  </button>
+              <form onSubmit={handleSubmit} className="">
+                <div className="w-full md:w-auto">
+                  <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <input
+                      type="email"
+                      placeholder="Your email address"
+                      className="px-4 py-3 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-white/50"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    <button type="submit" disabled={loading} className="bg-white text-emerald-700 px-6 py-3 rounded-lg font-medium hover:bg-emerald-50 transition-colors whitespace-nowrap">
+                      Subscribe
+                    </button>
+                  </div>
+                  <p className="text-white/70 text-sm mt-2">
+                    We respect your privacy. Unsubscribe at any time.
+                  </p>
                 </div>
-                <p className="text-white/70 text-sm mt-2">
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
-              </div>
+              </form>
             </div>
           </div>
         </div>

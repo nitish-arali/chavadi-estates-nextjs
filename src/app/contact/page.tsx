@@ -116,9 +116,9 @@ const Contact = () => {
 
                       <a
                         className="text-muted-foreground"
-                        href="mailto:chavadiestates1@gmail.com"
+                        href="mailto:info@chavadiestates.in"
                       >
-                        chavadiestates1@gmail.com
+                        info@chavadiestates.in
                       </a>
                     </div>
                   </div>

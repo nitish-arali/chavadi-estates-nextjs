@@ -6,6 +6,8 @@ import WhatsAppButton from "../../components/WhatsappButton";
 import Footer from "../../components/Footer";
 import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,7 +71,7 @@ const schemaData = {
   "image": "https://ik.imagekit.io/chavadiestates2025/Chavadi_Estates_Logo.png?updatedAt=1743499359881",
   "url": "https://chavadiestates.in",
   "telephone": "+91 9986689669",
-  "email": "chavadiestates1@gmail.com",
+  "email": "info@chavadiestates.in",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "#63/1, Hoodi Main Road, Surya Layout, Ayyappa Nagar",
@@ -166,6 +168,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
         {children}
+        <ToastContainer />
         <GoogleAnalytics gaId="G-6H19CYDMFM" />
         <WhatsAppButton />
         <Footer />

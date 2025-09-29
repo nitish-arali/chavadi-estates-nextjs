@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import ContactForm from "./ContactForm";
 import GoogleMap from "./GoogleMap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Index = () => {
   const heroSlides = [
@@ -65,6 +67,13 @@ const Index = () => {
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const newsPerPage = 3;
   const totalPages = Math.ceil(articles.length / newsPerPage);
+
+
+  const [formData, setFormData] = useState({
+    email: "",
+  });
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,8 +120,56 @@ const Index = () => {
     (currentNewsIndex + 1) * newsPerPage
   );
 
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch('/api/newsLetterSubscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      await response.json();
+
+      setFormData({ email: "" });
+      toast.success("Subscribed to newsletter successfully!", {
+        position: "top-center",
+        autoClose: 2000,        // 2 seconds
+        hideProgressBar: true,
+        pauseOnHover: false,    // don’t pause on hover
+        pauseOnFocusLoss: false,// don’t pause when tab/window loses focus
+        closeOnClick: false,    // clicking won’t close it early
+        draggable: false,
+      });
+    }
+    catch (error) {
+      console.error("Error submitting email:", error);
+      toast.error("Failed to subscribe. Please try again later.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      })
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
   return (
     <>
+
       <Hero slides={heroSlides} />
 
       {/* About Section */}
@@ -125,11 +182,10 @@ const Index = () => {
             <div
               className={`
           lg:transition-all lg:duration-700 lg:delay-100 lg:transform
-          ${
-            isVisible.about
-              ? "lg:opacity-100 lg:translate-x-0 opacity-100"
-              : "lg:opacity-0 lg:-translate-x-10 opacity-100"
-          }
+          ${isVisible.about
+                  ? "lg:opacity-100 lg:translate-x-0 opacity-100"
+                  : "lg:opacity-0 lg:-translate-x-10 opacity-100"
+                }
         `}
             >
               <span className="text-emerald-600 uppercase tracking-wider text-sm font-medium">
@@ -163,11 +219,10 @@ const Index = () => {
               className={`
           relative 
           lg:transition-all lg:duration-700 lg:delay-300 lg:transform
-          ${
-            isVisible.about
-              ? "lg:opacity-100 lg:translate-x-0 opacity-100"
-              : "lg:opacity-0 lg:translate-x-10 opacity-100"
-          }
+          ${isVisible.about
+                  ? "lg:opacity-100 lg:translate-x-0 opacity-100"
+                  : "lg:opacity-0 lg:translate-x-10 opacity-100"
+                }
         `}
             >
               <div className="rounded-lg overflow-hidden">
@@ -297,11 +352,10 @@ const Index = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className={`group bg-white p-8 rounded-xl shadow-sm border border-slate-100 transition-all duration-700 transform hover:shadow-md hover:-translate-y-1 ${
-                  isVisible.features
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
+                className={`group bg-white p-8 rounded-xl shadow-sm border border-slate-100 transition-all duration-700 transform hover:shadow-md hover:-translate-y-1 ${isVisible.features
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+                  }`}
                 style={{ transitionDelay: `${feature.delay}ms` }}
               >
                 <div
@@ -347,11 +401,10 @@ const Index = () => {
 
           <div className="relative">
             <div
-              className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-700 transform ${
-                isVisible.news
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
+              className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-700 transform ${isVisible.news
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+                }`}
             >
               {currentNewsArticles.map((article) => (
                 <div
@@ -418,11 +471,10 @@ const Index = () => {
                     <button
                       key={index}
                       onClick={() => setCurrentNewsIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentNewsIndex
-                          ? "bg-emerald-600"
-                          : "bg-slate-300"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-colors ${index === currentNewsIndex
+                        ? "bg-emerald-600"
+                        : "bg-slate-300"
+                        }`}
                       aria-label={`Go to news page ${index + 1}`}
                     />
                   ))}
@@ -506,10 +558,47 @@ const Index = () => {
                 Send Us a Message
               </h3>
               <ContactForm />
+              <div className="mt-12 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 md:p-12 shadow-lg relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -translate-x-1/3 translate-y-1/3 blur-2xl"></div>
+
+                <div className="relative z-10 flex flex-col justify-between items-center gap-9">
+                  <div className="text-white md:max-w-md">
+                    <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-center">
+                      Subscribe to Our Newsletter
+                    </h3>
+                    <p className="mb-0 text-white/80 text-center">
+                      Get the latest articles, property listings, and exclusive
+                      offers straight to your inbox.
+                    </p>
+                  </div>
+                  <form onSubmit={handleSubmit} className="">
+                    <input
+                      type="email"
+                      placeholder="Your email address"
+                      className="px-4 py-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-white/50"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    <button type="submit" disabled={loading} className="btn-gold text-black rounded-lg font-medium transition-colors whitespace-nowrap mt-2 w-full">
+                      Subscribe
+                    </button>
+
+                    {/* <p className="text-white/70 text-sm mt-2">
+                      We respect your privacy. Unsubscribe at any time.
+                    </p> */}
+
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 };
